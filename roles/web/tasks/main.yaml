@@ -1,0 +1,26 @@
+- name: install nginx package
+  ansible.builtin.package:
+    name: nginx
+    state: present
+- name: remove default content
+  ansible.builtin.file:
+    name: /usr/share/nginx/html/*
+    state: absent
+- name: downloand application code
+  ansible.builtin.get_url:
+    url: https://roboshop-builds.s3.amazonaws.com/web.zip
+    dest: /tmp
+- name: unzip application code
+  ansible.builtin.unarchive:
+    src: /tmp/web.zip
+    dest: /usr/share/nginx/html
+    remote_src: yes
+- name: copy reverse proxy config file
+  ansible.builtin.copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf 
+- name: start and enable nginx service
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+    enabled: yes
