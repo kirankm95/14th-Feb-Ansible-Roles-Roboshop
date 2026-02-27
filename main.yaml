@@ -1,4 +1,4 @@
-- name: "{{component}}" playbook
+- name: "{{component}}"
   hosts: "{{component}}"
   become: yes
   ignore_errors: yes
