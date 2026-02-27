@@ -1,2 +1,2 @@
   - name: load schema
-    ansible.builtin.shell: 'mongo --host {{mongodb}} </app/schema/{{component}}.js'
+    ansible.builtin.shell: 'mongo --host "{{mongodb}}" </app/schema/{{component}}.js'
