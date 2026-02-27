@@ -1,0 +1,6 @@
+- name: "{{component}}" playbook
+  hosts: "{{component}}"
+  become: yes
+  ignore_errors: yes
+  roles:
+  - "{{component}}
