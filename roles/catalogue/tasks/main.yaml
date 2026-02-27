@@ -1,0 +1,28 @@
+- name: install nodejs and create user& folder role
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: nodejs-user-folder
+- name: download application code and unzip
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-download-unzip
+- name: install dependencies
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: install-dependencies
+- name: copy catalogue service file
+  ansible.builtin.copy:
+    src: catalogue.service
+    dest: /etc/systemd/system/catalogue.service
+- name: deamon reload and service restart&enable
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: deamon-reload-app-start-enable
+- name: setup mongo repo yum file and install mongo client package
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: setup-mongo-repo-install-mongo-client
+- name: load {{component}} data into mongo db
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: mongodb-load-data

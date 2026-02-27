@@ -1,0 +1,14 @@
+- name: disable nodejs 10 version and enable 18 version
+  ansible.builtin.shell: "dnf module disable nodejs -y; dnf module enable nodejs:18 -y"
+- name: install nodejs package of 18 version
+  ansible.builtin.package:
+    name: nodejs
+    state: present
+- name: create user
+  ansible.builtin.user:
+    name: roboshop
+    state: present
+- name: create directory for application
+  ansible.builtin.file:
+    name: /app
+    state: directory
