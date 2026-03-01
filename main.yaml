@@ -2,5 +2,7 @@
   hosts: "{{component}}"
   become: yes
   ignore_errors: yes
+  vars_files:
+    - variables.yaml
   roles:
   - "{{component}}"
