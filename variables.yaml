@@ -1,0 +1,11 @@
+WEB_HOST: web.kiranku.online
+CATALOGUE_HOST: catalogue.kiranku.online
+CART_HOST: cart.kiranku.online
+USER_HOST: user.kiranku.online
+SHIPPING_HOST: shipping.kiranku.online
+PAYMENTS_HOST: payments.kiranku.online
+DISPATCH_HOST: dispatch.kiranku.online
+MONGODB_HOST: mongodb.kiranku.online
+REDIS_HOST: redis.kiranku.online
+MYSQL_HOST: mysql.kiranku.online
+RABBITMQ_HOST: rabbitmq.kiranku.online
