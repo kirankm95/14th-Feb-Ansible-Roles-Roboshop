@@ -1,6 +1,6 @@
 - name: copy mongodb yum repo file
-  ansible.builtin.copy:
-    src: mongo.repo
+  ansible.builtin.template:
+    src: mongo.repo.j2
     dest: /etc/yum.repos.d/mongo.repo
 - name: install mondb-org package
   ansible.builtin.package:
