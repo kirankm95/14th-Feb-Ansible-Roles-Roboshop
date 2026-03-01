@@ -21,3 +21,5 @@
     dest: /etc/nginx/default.d/roboshop.conf
   notify: 
   - start and enable nginx service
+  tags:
+   - copy file
